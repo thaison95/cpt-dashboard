@@ -2,10 +2,9 @@
 import { useQuery } from '@tanstack/vue-query'
 import { Button } from '@/components/ui/button'
 
+const apiUrl = import.meta.env.VITE_API_URL
 const fetcher = async () =>
-  await fetch('https://desktop-hp0khku.dory-mountain.ts.net/api').then(
-    response => response.json(),
-  )
+  await fetch(`${apiUrl}`).then(response => response.json())
 
 const { isPending, isError, isFetching, data, error, refetch } = useQuery({
   queryKey: ['posts'],

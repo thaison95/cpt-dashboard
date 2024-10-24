@@ -27,8 +27,6 @@ const apiUrl = import.meta.env.VITE_API_URL
 
 const tradersInput = ref('')
 
-const fetcher1 = async () =>
-  await fetch('/api').then(response => response.json())
 const fetcher = async () =>
   await fetch(`${apiUrl}/traders`).then(response => response.json())
 
