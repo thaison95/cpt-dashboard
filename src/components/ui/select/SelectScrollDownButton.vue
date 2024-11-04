@@ -1,14 +1,15 @@
 <script setup lang="ts">
 import { cn } from '@/lib/utils'
+import { ChevronDown } from 'lucide-vue-next'
 import {
-  DropdownMenuLabel,
-  type DropdownMenuLabelProps,
+  SelectScrollDownButton,
+  type SelectScrollDownButtonProps,
   useForwardProps,
 } from 'radix-vue'
 import { computed, type HTMLAttributes } from 'vue'
 
 const props = defineProps<
-  DropdownMenuLabelProps & { class?: HTMLAttributes['class']; inset?: boolean }
+  SelectScrollDownButtonProps & { class?: HTMLAttributes['class'] }
 >()
 
 const delegatedProps = computed(() => {
@@ -21,12 +22,14 @@ const forwardedProps = useForwardProps(delegatedProps)
 </script>
 
 <template>
-  <DropdownMenuLabel
+  <SelectScrollDownButton
     v-bind="forwardedProps"
     :class="
-      cn('px-2 py-1.5 text-sm font-semibold', inset && 'pl-8', props.class)
+      cn('flex cursor-default items-center justify-center py-1', props.class)
     "
   >
-    <slot />
-  </DropdownMenuLabel>
+    <slot>
+      <ChevronDown class="h-4 w-4" />
+    </slot>
+  </SelectScrollDownButton>
 </template>

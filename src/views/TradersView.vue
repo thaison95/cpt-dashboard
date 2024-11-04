@@ -35,7 +35,8 @@ const { isPending, isError, isFetching, data, error, refetch } = useQuery({
   queryFn: fetcher,
 })
 
-const postFn = async traders => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const postFn = async (traders: any) => {
   const response = await fetch(`${apiUrl}/traders`, {
     method: 'POST',
     headers: {
