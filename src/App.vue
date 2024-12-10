@@ -52,13 +52,14 @@ import { RouterLink, RouterView } from 'vue-router'
               <Home class="h-4 w-4" />
               Dashboard
             </a>
-            <a
-              href="#"
+            <RouterLink
+              to="/orders"
               class="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
+              active-class="bg-muted text-primary"
             >
               <ShoppingCart class="h-4 w-4" />
               Orders
-            </a>
+            </RouterLink>
             <RouterLink
               to="/traders"
               class="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
