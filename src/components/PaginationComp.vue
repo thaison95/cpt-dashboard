@@ -11,15 +11,23 @@ import {
   PaginationNext,
   PaginationPrev,
 } from '@/components/ui/pagination'
+
+const props = defineProps<{
+  total: number
+  // siblingCount: number
+}>()
+
+const emit = defineEmits(['updatePage'])
 </script>
 
 <template>
   <Pagination
     v-slot="{ page }"
-    :total="30"
+    :total="total"
     :sibling-count="2"
     show-edges
     :default-page="1"
+    v-on:update:page="($event) => emit('updatePage', $event)"
   >
     <PaginationList v-slot="{ items }" class="flex items-center gap-1">
       <PaginationFirst />

@@ -22,17 +22,15 @@ import {
 } from '@/components/ui/dialog'
 import { Textarea } from '@/components/ui/textarea'
 import { ref } from 'vue'
+import { tradersFetcher } from '@/api'
 
 const apiUrl = import.meta.env.VITE_API_URL
 
 const tradersInput = ref('')
 
-const fetcher = async () =>
-  await fetch(`${apiUrl}/traders`).then(response => response.json())
-
 const { isPending, isError, isFetching, data, error, refetch } = useQuery({
   queryKey: ['traders'],
-  queryFn: fetcher,
+  queryFn: tradersFetcher,
 })
 
 const postFn = async traders => {
