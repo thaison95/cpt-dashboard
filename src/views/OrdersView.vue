@@ -60,6 +60,10 @@ const dataFiltered = computed(() => {
   return orderByTrader || [];
 })
 
+const pnl = computed(() => {
+  return dataFiltered.value.reduce((acc, order) => acc + (order.pnl || 0), 0)
+})
+
 </script>
 
 <template>
@@ -80,6 +84,11 @@ const dataFiltered = computed(() => {
           </SelectGroup>
         </SelectContent>
       </Select>
+      <!-- ---------- -->
+      <div class="mt-2 ml-2 gap-1">
+        <h1 class="text-sm font-bold">PNL: {{ pnl }}</h1>
+        <span class="text-sm">Orders: {{ dataFiltered.length }}</span>
+      </div>
       <!-- ---------- -->
       <Table>
         <TableHeader>
