@@ -91,7 +91,7 @@ import { RouterLink, RouterView } from 'vue-router'
               <span class="sr-only">Toggle navigation menu</span>
             </Button>
           </SheetTrigger>
-          <SheetContent side="left" class="flex flex-col">
+          <SheetContent side="left" class="flex flex-col max-w-[280px]">
             <nav class="grid gap-2 text-lg font-medium">
               <a href="#" class="flex items-center gap-2 text-lg font-semibold">
                 <Package2 class="h-6 w-6" />
@@ -104,39 +104,30 @@ import { RouterLink, RouterView } from 'vue-router'
                 <Home class="h-5 w-5" />
                 Dashboard
               </a>
-              <a
-                href="#"
-                class="mx-[-0.65rem] flex items-center gap-4 rounded-xl bg-muted px-3 py-2 text-foreground hover:text-foreground"
+              <RouterLink
+                to="/orders"
+                class="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
+                active-class="bg-muted text-foreground"
               >
                 <ShoppingCart class="h-5 w-5" />
                 Orders
-                <Badge
-                  class="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full"
-                >
-                  6
-                </Badge>
-              </a>
-              <a
-                href="#"
+              </RouterLink>
+              <RouterLink
+                to="/traders"
                 class="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
-              >
-                <Package class="h-5 w-5" />
-                Products
-              </a>
-              <a
-                href="#"
-                class="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
+                active-class="bg-muted text-foreground"
               >
                 <Users class="h-5 w-5" />
-                Customers
-              </a>
-              <a
-                href="#"
+                Users
+              </RouterLink>
+              <RouterLink
+                to="/about"
                 class="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
+                active-class="bg-muted text-foreground"
               >
                 <LineChart class="h-5 w-5" />
                 Analytics
-              </a>
+              </RouterLink>
             </nav>
           </SheetContent>
         </Sheet>
